@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
+export default class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      counter : 0
+    }
+  }
+  render() {
+    return (
+      <div className="App">
+        <p style={{ fontSize: 35, fontWeight: 700, color: "#0080ff" }}>
+          You have pushed the button this many times:
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+        <p style={{ fontSize: 38, fontWeight: 600, color: "red"}}>{this.state.counter}</p>
+        <button style={{ fontSize:20,borderRadius: 5,backgroundColor:'aqua',width:200}} onClick={()=>{this.setState({counter:this.state.counter+1})}}>
+          Click Me!
+        </button>
 
-export default App;
+        <button style={{ fontSize:20,borderRadius: 5,backgroundColor:'aqua',width:200}} 
+          onClick={()=>{this.setState({counter:0})}}>
+          Reset Counter!
+        </button>
+      </div>
+    );
+  }
+}
